@@ -5,9 +5,12 @@
  */
 package cooperativa_taxis;
 
+import Controlador.ControladorMenuPrincipal;
+import vista.VistaPrincipal;
+
 /**
  *
- * @author USUARIO
+ * @author alejo
  */
 public class Cooperativa_Taxis {
 
@@ -16,6 +19,9 @@ public class Cooperativa_Taxis {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+         VistaPrincipal vista = new VistaPrincipal();
+         ControladorMenuPrincipal controlador= new ControladorMenuPrincipal(vista);    
+         controlador.iniciaControl();
     }
     
 }

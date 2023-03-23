@@ -19,11 +19,39 @@ public class ClaseSocios {
     private int discotaxi;
     private String placa_taxi;
     private String marca_taxi;
+    private String telefono;
       //Foto
      private Image foto;
     //Guardar la foto
      private FileInputStream imagen;
      private int largo;
+
+    public ClaseSocios() {
+    }
+
+    public ClaseSocios(String cedula, String nombres, String direccion, int discotaxi, String placa_taxi, String marca_taxi, String telefono, Image foto, FileInputStream imagen, int largo) {
+        this.cedula = cedula;
+        this.nombres = nombres;
+        this.direccion = direccion;
+        this.discotaxi = discotaxi;
+        this.placa_taxi = placa_taxi;
+        this.marca_taxi = marca_taxi;
+        this.telefono = telefono;
+        this.foto = foto;
+        this.imagen = imagen;
+        this.largo = largo;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+   
+     
 
     /**
      * @return the cedula
