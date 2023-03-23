@@ -396,7 +396,7 @@ public class VistaSocios extends javax.swing.JInternalFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel12.setText("Datos requeridos para el listado de personas");
+        jLabel12.setText("Datos requeridos para el listado de Socios");
 
         jLabel13.setText("Titulo del reporte:");
 
