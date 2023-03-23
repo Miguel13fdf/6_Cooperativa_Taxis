@@ -28,6 +28,7 @@ import javax.xml.ws.Holder;
 import Modelo.ConectPG;
 import Modelo.ModeloSocios;
 import Modelo.ClaseSocios;
+import java.io.File;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRPrintPage;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -81,25 +82,28 @@ public class ControlSocios {
 //                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
 //            }
     }
-    private void examinaFoto(){
-        jfc=new JFileChooser();
-        jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        int estado=jfc.showOpenDialog(vista);
-        if(estado==JFileChooser.APPROVE_OPTION){
-            try {
-                Image imagen=ImageIO.read(jfc.getSelectedFile()).getScaledInstance(
-                        vista.getLblfoto().getWidth(),
-                        vista.getLblfoto().getHeight(),
-                        Image.SCALE_DEFAULT);
-                
+   private void examinaFoto(){
+    jfc=new JFileChooser();
+    jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+    int estado=jfc.showOpenDialog(vista);
+    if(estado==JFileChooser.APPROVE_OPTION){
+        try {
+            File file = jfc.getSelectedFile();
+            if (file != null) {
+                Image imagen=ImageIO.read(file).getScaledInstance(
+                    vista.getLblfoto().getWidth(),
+                    vista.getLblfoto().getHeight(),
+                    Image.SCALE_DEFAULT);
+
                 Icon icono=new ImageIcon(imagen);
                 vista.getLblfoto().setIcon(icono);
                 vista.getLblfoto().updateUI();
-            } catch (IOException ex) {
-                Logger.getLogger(ControlSocios.class.getName()).log(Level.SEVERE, null, ex);
             }
+        } catch (IOException ex) {
+            Logger.getLogger(ControlSocios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+}
     private void Imprimir(){
 //            try {
 //                ConectPG cpg=new ConectPG();
@@ -281,6 +285,7 @@ public class ControlSocios {
        }
        private ModeloSocios cargarDatos(){
             ModeloSocios persona=new ModeloSocios();
+            
             String cedula=vista.getTxtidentificacion().getText();
                String nombres=vista.getTxtnombres().getText();
                String direccion=vista.getTxtDIRECCION().getText();
