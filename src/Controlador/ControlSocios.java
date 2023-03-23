@@ -118,7 +118,7 @@ public class ControlSocios {
 //            }
              ConectPG cpg = new ConectPG();//Instanciar la conexion con esto abrimos la conexion a la BD
         try {
-           JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportemvc.jasper"));
+           JasperReport jr = (JasperReport) JRLoader.loadObject(getClass().getResource("/vista/reportes/Reportemvc1.jasper"));
          
             
 
