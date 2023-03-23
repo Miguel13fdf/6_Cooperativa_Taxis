@@ -103,13 +103,15 @@ public class VistaSocios extends javax.swing.JInternalFrame {
         this.btnCrear = btnCrear;
     }
 
-    public JButton getBtnEditar() {
-        return btnEditar;
+    public JButton getBtnEditar1() {
+        return btnEditar1;
     }
 
-    public void setBtnEditar(JButton btnEditar) {
-        this.btnEditar = btnEditar;
+    public void setBtnEditar1(JButton btnEditar1) {
+        this.btnEditar1 = btnEditar1;
     }
+
+   
 
     public JButton getBtnEliminar() {
         return btnEliminar;
@@ -269,7 +271,7 @@ public class VistaSocios extends javax.swing.JInternalFrame {
         btnActualizar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnCrear = new javax.swing.JButton();
-        btnEditar = new javax.swing.JButton();
+        btnEditar1 = new javax.swing.JButton();
         btnImprimir = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -466,7 +468,7 @@ public class VistaSocios extends javax.swing.JInternalFrame {
 
         btnCrear.setText("Crear");
 
-        btnEditar.setText("Editar");
+        btnEditar1.setText("Editar");
 
         btnImprimir.setText("Imprimir");
 
@@ -484,7 +486,7 @@ public class VistaSocios extends javax.swing.JInternalFrame {
                 .addGap(39, 39, 39)
                 .addComponent(btnCrear)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(btnEditar)
+                .addComponent(btnEditar1)
                 .addGap(48, 48, 48)
                 .addComponent(btnEliminar)
                 .addGap(45, 45, 45)
@@ -500,7 +502,7 @@ public class VistaSocios extends javax.swing.JInternalFrame {
                     .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnActualizar)
                     .addComponent(btnCrear)
-                    .addComponent(btnEditar)
+                    .addComponent(btnEditar1)
                     .addComponent(btnEliminar)
                     .addComponent(btnImprimir))
                 .addContainerGap(56, Short.MAX_VALUE))
@@ -574,7 +576,7 @@ public class VistaSocios extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Txtplacataxi;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEditar1;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnExaminar;
     private javax.swing.JButton btnGenerarReporte;

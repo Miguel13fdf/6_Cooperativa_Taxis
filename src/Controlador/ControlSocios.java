@@ -60,7 +60,7 @@ public class ControlSocios {
     public void iniciacontrol(){
         vista.getBtnActualizar().addActionListener(l->cargaPersonas()); 
         vista.getBtnCrear().addActionListener(l->abrirDialogo(1));
-        vista.getBtnEditar().addActionListener(l->abrirDialogo(2));
+        vista.getBtnEditar1().addActionListener(l->abrirDialogo(2));
         vista.getBtnaceptar().addActionListener(l->crearEditarPersonaFoto());
         vista.getBtnExaminar().addActionListener(l->examinaFoto());
         vista.getBtncancelar().addActionListener(l->cancelarIngreso());
@@ -124,8 +124,8 @@ public class ControlSocios {
             Map<String, Object> parametros = new HashMap<String, Object>();
 
             parametros.put("titulo", vista.getTxtTitulo().getText()); //En donde esta 'titulo' tienen que ser igual al nombre que esta en el parametro del jasper
-            parametros.put("limitea", Integer.parseInt(vista.getSpinnerSueldomaximo().getValue().toString()));
-            parametros.put("limiteb", Integer.parseInt(vista.getSpinnerSueldominimo().getValue().toString()));//Cuando se quiere pasar un tipo de dato int '100' se coloca la 'd' despues del dato'100d'
+            parametros.put("limitea", (int) Math.round(Double.parseDouble(vista.getSpinnerSueldomaximo().getValue().toString())));
+            parametros.put("limiteb", (int) Math.round(Double.parseDouble(vista.getSpinnerSueldominimo().getValue().toString())));//Cuando se quiere pasar un tipo de dato int '100' se coloca la 'd' despues del dato'100d'
 
             JasperPrint jp = JasperFillManager.fillReport(jr, parametros, cpg.getCon());//'parametros' es el Map recien creado que contiene los parametros que iran al jasper
 
@@ -209,7 +209,7 @@ public class ControlSocios {
                 title="Editar Socio";
                 vista.getDblg().setName("editar");
                  SacarDatos();
-                 vista.getTxtidentificacion().setEditable(false);
+                  
             }
             vista.getDblg().setLocationRelativeTo(vista);
             vista.getDblg().setSize(800,700);
@@ -311,7 +311,19 @@ public class ControlSocios {
         } else {
             String id = vista.getTbPersona().getValueAt(fila, 0).toString();
             String nombres = vista.getTbPersona().getValueAt(fila, 1).toString();
-           
+            String direccion=vista.getTbPersona().getValueAt(fila, 2).toString();
+            String disco= (vista.getTbPersona().getValueAt(fila, 4).toString());
+            String placa=vista.getTbPersona().getValueAt(fila, 5).toString();
+             String marca=vista.getTbPersona().getValueAt(fila, 6).toString();
+              String telefono=vista.getTbPersona().getValueAt(fila, 7).toString();
+              vista.getTxtidentificacion().setText(id);
+              vista.getTxtnombres().setText(nombres);
+              vista.getTxtDIRECCION().setText(direccion);
+              vista.getTxtdisco().setText(disco);
+              vista.getTxtplacataxi().setText(placa);
+              vista.getTxtmarcataxi().setText(marca);
+              vista.getTxtTelefono().setText(telefono);
+           vista.getDblg().setVisible(true);
         }
               
        }

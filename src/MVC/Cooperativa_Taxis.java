@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cooperativa_taxis;
+package MVC;
 
 import Controlador.ControladorMenuPrincipal;
 import vista.VistaPrincipal;

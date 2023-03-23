@@ -27,8 +27,10 @@ import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
 import javax.imageio.ImageReader;
 import javax.imageio.stream.ImageInputStream;
-public class ModeloSocios extends ClaseSocios{
-    ConectPG cpg=new ConectPG();
+
+public class ModeloSocios extends ClaseSocios {
+
+    ConectPG cpg = new ConectPG();
 
     public ModeloSocios() {
     }
@@ -37,7 +39,6 @@ public class ModeloSocios extends ClaseSocios{
         super(cedula, nombres, direccion, discotaxi, placa_taxi, marca_taxi, telefono, foto, imagen, largo);
     }
 
-    
     public List<ClaseSocios> listaPersonas(String filtro) {
         try {
             List<ClaseSocios> lista = new ArrayList<>();
@@ -81,10 +82,14 @@ public class ModeloSocios extends ClaseSocios{
 
     private Image obtenerImagen(byte[] bytes) throws IOException {
         ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
-        Iterator it = ImageIO.getImageReadersByFormatName("png");
-        ImageReader reader = (ImageReader) it.next();
-        Object source = bis;
-        ImageInputStream iis = ImageIO.createImageInputStream(source);
+        ImageInputStream iis = ImageIO.createImageInputStream(bis);
+        Iterator<ImageReader> it = ImageIO.getImageReaders(iis);
+
+        if (!it.hasNext()) {
+            throw new IOException("No se encontró un lector de imágenes para el formato proporcionado");
+        }
+
+        ImageReader reader = it.next();
         reader.setInput(iis, true);
         ImageReadParam param = reader.getDefaultReadParam();
         param.setSourceSubsampling(1, 1, 0, 0);
@@ -131,9 +136,10 @@ public class ModeloSocios extends ClaseSocios{
             return false;
         }
     }
-     public SQLException eliminarSocioDB() { //eliminas la instancia en la BD
 
-        String sql = "DELETE FROM socios WHERE cedula = '" + getCedula()+ "';";
+    public SQLException eliminarSocioDB() { //eliminas la instancia en la BD
+
+        String sql = "DELETE FROM socios WHERE cedula = '" + getCedula() + "';";
 
         ConectPG conpg = new ConectPG();
 
